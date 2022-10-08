@@ -9,36 +9,44 @@
 //    d. log both instances to see their properties
 //    e. invoke each method from both instances
 
-// Classes are blueprints for objects
+class Cat {
+  constructor(name, age, breed, color) {
+    (this.name = name),
+      (this.age = age),
+      (this.breed = breed),
+      (this.color = color);
+  }
+  isAsleep() {
+    this.isAsleep = true;
+    console.log(`${this.name} is sleeping.`);
+  }
+  isEating() {
+    this.isEating = true;
+    console.log(`${this.name} is eating.`);
+  }
+  isPlaying() {
+    this.isPlaying = true;
+    console.log(`${this.name} is playing!`);
+  }
+}
 
-// const lion = {
-//     legs: 4,
-//     color: "golden",
-//     diet: "carnivores"
-// }
+const padfoot = new Cat("Padfoot", "2 yrs.", "Bombay", "Black");
+console.log(padfoot);
+padfoot.isAsleep();
+padfoot.isEating();
+padfoot.isPlaying();
 
-// const zebra = {
-//     legs: 4,
-//     color: "black and white",
-//     diet: "herbivore"
-// }
-
-// class is a reserved JS keyword
-// classes always start with a capital letter
-
-// class Cat {
-
-// }
+const mrMittens = new Cat("Mr Mittens", "8 months", "Scottish Fold", "Grey");
+console.log(mrMittens);
+mrMittens.isAsleep();
+mrMittens.isEating();
+mrMittens.isPlaying();
 
 // ===== Constructors ====
 // here is a class to work with
-
 // class Pirate {
-
 //   constructor(){
-
 //   }
-
 // }
 //   a. create 3 properties that are set by the constructor
 //   b. create 3 methods
@@ -46,13 +54,10 @@
 //   d. loop over each array and print 3 properties of each pirate
 
 class Pirate {
-  constructor(name, age, limbs, weapon, ship, status) {
+  constructor(name, limbs, weapon) {
     (this.name = name),
-      (this.age = age),
       (this.limbs = limbs), // Status of limbs: If Pirate has all limbs, input: 'All' or If Pirate has amputated limb(s), input example: 'missing right-hand'
-      (this.weapon = weapon),
-      (this.ship = ship),
-      (this.status = status); // Is pirate alive or dead
+      (this.weapon = weapon);
   }
   isSleeping() {
     this.isSleeping = true;
@@ -72,61 +77,35 @@ class Pirate {
 
 const ruthlessMary = new Pirate(
   "Mary the Ruthless",
-  "38",
   "Missing left-hand",
-  "Blunderbuss and Dagger",
-  "Black Pearl",
-  "Alive"
+  "Blunderbuss and Dagger"
 );
 
-const blackBeard = new Pirate(
-  "Black Beard",
-  "37",
-  "All",
-  "Cutlass",
-  "Black Pearl",
-  "Alive"
-);
+const blackBeard = new Pirate("Black Beard", "All", "Cutlass", "Alive");
 
-const blackCaesar = new Pirate(
-  "Black Caesar",
-  "25",
-  "All",
-  "Cutlass and Pistol",
-  "Black Pearl",
-  "Alive"
-);
+const blackCaesar = new Pirate("Black Caesar", "All", "Cutlass and Pistol");
 
 // PIRATE SHIP - JOLLY ROGER //
 const calicoJack = new Pirate(
   "Calico Jack",
-  "50",
   "Missing right-ear",
-  "Blunderbuss",
-  "Jolly Roger",
-  "Alive"
+  "Blunderbuss"
 );
 
-const noFootNancy = new Pirate(
+const noFootnancy = new Pirate(
   "No-Foot Nancy",
-  "25",
   "Missing left-foot",
-  "Cutlass and Pistol",
-  "Jolly Roger",
-  "Alive"
+  "Cutlass and Pistol"
 );
 
 const paleBonesbart = new Pirate(
   "Pale-Bones Bart",
-  "32",
   "All",
-  "Boarding Axe and Musket",
-  "Jolly Roger",
-  "Alive"
+  "Boarding Axe and Musket"
 );
 
 // const blackPearl = [ruthlessMary, blackBeard, blackCaesar];
-// const jollyRoger = [calicoJack, noFootNancy, paleBonesbart];
+// const jollyRoger = [calicoJack, noFootnancy, paleBonesbart];
 // console.log(blackPearl);
 // console.log(jollyRoger);
 
@@ -135,4 +114,13 @@ const paleBonesbart = new Pirate(
 // blackBeard.isSleeping();
 
 const blackPearl = [ruthlessMary, blackBeard, blackCaesar];
-const jollyRoger = [calicoJack, noFootNancy, paleBonesbart];
+
+blackPearl.forEach((instances) => {
+  console.log(instances);
+});
+
+const jollyRoger = [calicoJack, noFootnancy, paleBonesbart];
+
+jollyRoger.forEach((entry) => {
+  console.log(entry);
+});
